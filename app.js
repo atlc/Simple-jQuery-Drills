@@ -20,13 +20,16 @@ $(document).ready(function () {
         // Done to prevent page from actually attempting a submission and then reloading the page
         event.preventDefault(); 
         let $formInfo = $("input").val();
-        //Commenting out alert for now because it's annoying and slows testing
-        //alert($formInfo);
+        alert($formInfo);
         $("ul").append("<li>"+$formInfo+"</li>");
     });
 
     // Use event delegation to target children https://learn.jquery.com/events/event-delegation/
     $("ul").click(function (event) {
         $(event.target).css("color", getRandomColor());  
+    });
+
+    $("ul").dblclick(function (event) {
+        $(event.target).remove();
     });
 });
